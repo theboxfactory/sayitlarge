@@ -46,5 +46,29 @@
         </p>
       </div>      
     </div>
+    <script>
+      console.log('Started....');
+
+      if ('serviceWorker' in navigator) {
+        console.log('Service Worker supported.')
+        navigator.serviceWorker.register('service-worker.js')
+          .then(function(event){
+            console.log('Service worker registered.');
+          }).catch(function(error) {
+              console.log('Servicd worker registration failed: ' + error);
+            }); 
+      }
+      else {
+        console.log('Service Worker not supported.')
+      }
+
+      document.addEventListener('load', function() {
+        console.log('Document loaded...');
+        alert('Loaded');
+      });
+
+      console.log('Ended....');
+    
+    </script>
 </body>
 </html>
